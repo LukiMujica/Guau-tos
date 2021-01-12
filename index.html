@@ -43,11 +43,36 @@
                     <div class="fondo__titulos">
                         <h1 class="fondo__titulos--h1">Guau!tos.</h1>
                         <h2 class="fondo__titulos--h2"> Los únicos que pensamos en vos y tu mascota. Viajen tranquilos.</h2>
-                        <p id="titulos"></p>
-                        <button class="btn btn-primary" id="boton" onkeyup="calcular();">Hacé click para ver los datos que introdujiste!</button>
-                        <div id="container"></div>
+
+
                     </div>
 
+                </div>
+            </div>
+            <div class="container__form">
+                <form class="form">
+                    <h2 class="form__titulo">DEJÁ TUS DATOS!</h2>
+                    <p type="Nombre:"><input placeholder="Ingresá tu nombre acá.." id="name"></input>
+                    </p>
+                    <p type="Email:"><input placeholder="Ingresá tu mail de contacto.." id="email"></input>
+                    </p>
+                    <p type="Marca:"><input placeholder="Ingresá la marca de tu auto.." id="marca"></input>
+                    </p>
+                    <p type="Modelo:"><input placeholder="Ingresá el modelo de tu auto.." id="modelo"></input>
+                    </p>
+                    <p type="Año:"><input placeholder="Ingresá el año de tu auto.." id="anio"></input>
+                    </p>
+                    <button class="form__btn">Enviar</button>
+                    <div class="form__div">
+                        <span class="fa fa-phone"></span>+541161488457
+                        <span class="fa fa-envelope-o"></span> contact@guautos.com
+                    </div>
+
+                </form>
+                <div class="datos">
+                    <p id="titulos"></p>
+                    <button class="btn btn-primary" id="boton" onkeyup="obtenerDatos();">Hacé click para ver los datos que introdujiste!</button>
+                    <div id="container"></div>
                 </div>
             </div>
         </main>

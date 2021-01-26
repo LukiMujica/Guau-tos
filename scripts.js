@@ -80,3 +80,79 @@ let conductoresRegistrados = { 'Luis': 1, 'Mario': 2, 'Julia': 3 };
 localStorage.setItem('conductoresRegistrados', JSON.stringify(conductoresRegistrados));
 let listConductores = localStorage.getItem('conductoresRegistrados');
 console.log('Los conductores registrados son: ', JSON.parse(listConductores));
+
+$(document).ready(function() {
+    $(window).scroll(function() {
+        if ($(document).scrollTop() > 50) {
+            $("h5").addClass("test");
+        } else {
+            $("h5").removeClass("test");
+        }
+    });
+});
+
+// Scroll up
+
+document.getElementById("button-up").addEventListener("click", scrollUp);
+
+function scrollUp() {
+    var currentScroll = document.documentElement.scrollTop;
+
+    if (currentScroll > 0) {
+        window.requestAnimationFrame(scrollUp);
+        window.scrollTo(0, currentScroll - currentScroll / 10);
+    }
+}
+
+///
+
+buttonUp = document.getElementById("button-up");
+
+window.onscroll = function() {
+    var scroll = document.documentElement.scrollTop;
+
+    if (scroll > 175) {
+        buttonUp.style.transform = "scale(1)";
+    } else if (scroll < 500) {
+        buttonUp.style.transform = "scale(0)";
+    }
+};
+
+document.querySelector('#dolar').addEventListener('click', function() {
+    obtenerDatos('dolaroficial');
+});
+
+document.querySelector('#dolarblue').addEventListener('click', function() {
+    obtenerDatos('dolarblue');
+});
+
+document.querySelector('#dolarbolsa').addEventListener('click', function() {
+    obtenerDatos('dolarbolsa');
+});
+
+function obtenerDatos(valor) {
+
+    let url = `https://api-dolar-argentina.herokuapp.com/api/${valor}`;
+
+    const api = new XMLHttpRequest();
+    api.open('GET', url, true);
+    api.send();
+
+    api.onreadystatechange = function() {
+
+        if (this.status == 200 && this.readyState == 4) {
+
+            let datos = JSON.parse(this.responseText);
+            console.log(datos);
+            let resultado = document.querySelector('#resultado');
+            resultado.innerHTML = '';
+
+
+
+            resultado.innerHTML = `<li>El precio para la compra es: $${datos.compra} El precio para la venta es: $${datos.venta}</li>`
+            resultado.classList = 'fondo__titulos--h2';
+
+        }
+    }
+
+}

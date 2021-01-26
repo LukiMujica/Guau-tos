@@ -452,6 +452,14 @@ span {
     border-color: rgba(0, 0, 0, 0.1);
 }
 
+.texto {
+    display: none;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 
 /* h5 {
     position: fixed

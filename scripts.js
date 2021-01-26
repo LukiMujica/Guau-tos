@@ -91,7 +91,7 @@ $(document).ready(function() {
     });
 });
 
-// Scroll up
+// ! Scroll up
 
 document.getElementById("button-up").addEventListener("click", scrollUp);
 
@@ -118,41 +118,99 @@ window.onscroll = function() {
     }
 };
 
+// ! Boton de animacion con jQuery
+
+$("button.animacion").click(function() {
+    $("p.texto").slideDown(1000, function() {});
+});
+
+
+
+// ! Esta era la version de AJAX sin jQuery
+// document.querySelector('#dolar').addEventListener('click', function() {
+//     obtenerDatos('dolaroficial');
+// });
+
+// document.querySelector('#dolarblue').addEventListener('click', function() {
+//     obtenerDatos('dolarblue');
+// });
+
+// document.querySelector('#dolarbolsa').addEventListener('click', function() {
+//     obtenerDatos('dolarbolsa');
+// });
+
+// function obtenerDatos(valor) {
+
+//     let url = `https://api-dolar-argentina.herokuapp.com/api/${valor}`;
+
+//     const api = new XMLHttpRequest();
+//     api.open('GET', url, true);
+//     api.send();
+
+//     api.onreadystatechange = function() {
+
+//         if (this.status == 200 && this.readyState == 4) {
+
+//             let datos = JSON.parse(this.responseText);
+//             console.log(datos);
+//             let resultado = document.querySelector('#resultado');
+//             resultado.innerHTML = '';
+
+
+
+//             resultado.innerHTML = `<li>El precio para la compra es: $${datos.compra} El precio para la venta es: $${datos.venta}</li>`
+//             resultado.classList = 'fondo__titulos--h2';
+
+//         }
+//     }
+
+// }
+// ! Dolar con Jquery y AJAX INSTALAR extension Allow CORS en el navegador o no funciona
+
 document.querySelector('#dolar').addEventListener('click', function() {
-    obtenerDatos('dolaroficial');
-});
-
-document.querySelector('#dolarblue').addEventListener('click', function() {
-    obtenerDatos('dolarblue');
-});
-
-document.querySelector('#dolarbolsa').addEventListener('click', function() {
-    obtenerDatos('dolarbolsa');
-});
-
-function obtenerDatos(valor) {
-
-    let url = `https://api-dolar-argentina.herokuapp.com/api/${valor}`;
-
-    const api = new XMLHttpRequest();
-    api.open('GET', url, true);
-    api.send();
-
-    api.onreadystatechange = function() {
-
-        if (this.status == 200 && this.readyState == 4) {
-
-            let datos = JSON.parse(this.responseText);
-            console.log(datos);
+    $.ajax({
+        url: 'https://api-dolar-argentina.herokuapp.com/api/dolaroficial', //un archivo json con datos de usuarios: nombre, apellido, etc
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
             let resultado = document.querySelector('#resultado');
             resultado.innerHTML = '';
 
-
-
-            resultado.innerHTML = `<li>El precio para la compra es: $${datos.compra} El precio para la venta es: $${datos.venta}</li>`
+            resultado.innerHTML = `<li>El precio para la compra es: $${data.compra} El precio para la venta es: $${data.venta}</li>`
             resultado.classList = 'fondo__titulos--h2';
-
         }
-    }
+    });
 
-}
+});
+
+document.querySelector('#dolarblue').addEventListener('click', function() {
+    $.ajax({
+        url: 'https://api-dolar-argentina.herokuapp.com/api/dolarblue', //un archivo json con datos de usuarios: nombre, apellido, etc
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+            let resultado = document.querySelector('#resultado');
+            resultado.innerHTML = '';
+
+            resultado.innerHTML = `<li>El precio para la compra es: $${data.compra} El precio para la venta es: $${data.venta}</li>`
+            resultado.classList = 'fondo__titulos--h2';
+        }
+    });
+
+});
+
+document.querySelector('#dolarbolsa').addEventListener('click', function() {
+    $.ajax({
+        url: 'https://api-dolar-argentina.herokuapp.com/api/dolarbolsa', //un archivo json con datos de usuarios: nombre, apellido, etc
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+            let resultado = document.querySelector('#resultado');
+            resultado.innerHTML = '';
+
+            resultado.innerHTML = `<li>El precio para la compra es: $${data.compra} El precio para la venta es: $${data.venta}</li>`
+            resultado.classList = 'fondo__titulos--h2';
+        }
+    });
+
+});

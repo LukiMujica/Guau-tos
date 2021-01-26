@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guau!tos - Viaja con tu Mascota</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbar-fixed/">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/fc073e7f11.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/CSS/navbar-top-fixed.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Contenedor de todo el body -->
+    <div class="contenedor">
+        <header class="encabezado">
+            <div class="encabezado__contenedor">
+                <!-- Logo -->
+                <a href="index.html">
+                    <img class="encabezado__logo animate__animated animate__fadeInDown" src="IMG/Logo.png" alt="logo">
+                </a>
+
+                <!-- Menú -->
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                    <div class="container-fluid font-title">
+                        <a class="navbar-brand" href="#">Guau!tos</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="mb-2 navbar-nav me-auto mb-md-0">
+                                <li class="nav-item active">
+                                    <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Conductores</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- Comienza la sección -->
+        <main class="main">
+            <div class="fondo">
+                <div class="fondo__cont">
+                    <div class="fondo__titulos">
+                        <h1 class="fondo__titulos--h1">Guau!tos.</h1>
+                        <h2 class="fondo__titulos--h2"> Los únicos que pensamos en vos y tu mascota. Viajen tranquilos.</h2>
+                        <h5>La empresa líder de transporte sudamericana!</h5>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="container__form">
+                <form class="form">
+                    <h2 class="form__titulo">DEJÁ TUS DATOS!</h2>
+                    <p type="Nombre:"><input placeholder="Ingresá tu nombre acá.." id="name"></input>
+                    </p>
+                    <p type="Email:"><input placeholder="Ingresá tu mail de contacto.." id="email"></input>
+                    </p>
+                    <p type="Marca:"><input placeholder="Ingresá la marca de tu auto.." id="marca"></input>
+                    </p>
+                    <p type="Modelo:"><input placeholder="Ingresá el modelo de tu auto.." id="modelo"></input>
+                    </p>
+                    <p type="Año:"><input placeholder="Ingresá el año de tu auto.." id="anio"></input>
+                    </p>
+                    <button class="form__btn">Enviar</button>
+                    <div class="form__div">
+                        <span class="fa fa-phone"></span>+541161488457
+                        <span class="fa fa-envelope-o"></span> contact@guautos.com
+                    </div>
+
+                </form>
+
+                <div class="datos">
+                    <p id="titulos"></p>
+                    <button class="btn btn-primary" id="boton" onkeyup="obtenerDatos();">Hacé click para ver los datos que introdujiste!</button>
+                    <div id="container"></div>
+                </div>
+                <!-- Cotizacion del dolar, API -->
+                <div class="datos">
+                    <div class="section">
+                        <button class="btn btn-primary" id="dolar">Dolar</button>
+                        <button class="btn btn-danger" id="dolarblue">Dolar Blue</button>
+                        <button class="btn btn-warning" id="dolarbolsa">Dolar Bolsa</button>
+                        <ul id="resultado"></ul>
+                    </div>
+                    <div class="animacion">
+                        <button class="animacion btn btn-primary">Animacion!</button>
+                        <p class="texto">Guau!tos</p>
+                    </div>
+                </div>
+                <!-- Scroll Up -->
+                <div id="button-up">
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+            </div>
+
+
+        </main>
+
+
+
+        <footer class="footer" id="footerindex">Marcelo Torcuato de Alvear 2424 - CP 1122 - CABA. Tel: 011 6148 8457
+            <br>
+            <div>
+                <a href=""><i class="social fab fa-instagram"></i></a>
+                <a href=""> <i class="social fab fa-facebook"></i></a>
+                <a href=""><i class="social fab fa-whatsapp"></i></a>
+            </div>
+            <div>
+                <p>Design by Lucas Mujica!</p>
+            </div>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</body>
+
+</html>
